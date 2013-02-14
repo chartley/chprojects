@@ -9,7 +9,7 @@ import site
 DJANGO_PROJECT = os.path.dirname(os.path.realpath(__file__)).split('/')[-2]
 
 # NB! All imports from dependencies should go below next line!
-site.addsitedir('/usr/local/pythonenv/' + DJANGO_PROJECT + '/lib/python2.6/site-packages')
+site.addsitedir('/usr/local/pythonenv/' + DJANGO_PROJECT + '/lib/python2.7/site-packages')
 
 LOG_FILENAME = '/mnt/working/logs/apachedj/apachedj_' + DJANGO_PROJECT + '.log'
 logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
