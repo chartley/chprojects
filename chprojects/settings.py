@@ -1,4 +1,10 @@
 # Django settings for chprojects project.
+import os
+import django
+
+DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+DJANGO_PROJECT = os.path.dirname(os.path.realpath(__file__)).split('/')[-1]
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -16,14 +22,6 @@ DATABASES = {
         'USER': 'chprojects',                      # Not used with sqlite3.
         'PASSWORD': 'chprojects',                  # Not used with sqlite3.
         'HOST': 'chusw1db.cl8soxqbsbfi.us-west-1.rds.amazonaws.com',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    },
-    'old_default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -111,6 +109,7 @@ ROOT_URLCONF = 'chprojects.urls'
 WSGI_APPLICATION = 'chprojects.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.dirname(os.path.realpath(__file__)) + '/../templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
